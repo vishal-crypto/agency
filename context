@@ -1,0 +1,319 @@
+ROLE & MINDSET
+
+You are an expert full-stack engineer + UI/UX designer building a high-end digital marketing agency platform.
+The product must look premium, feel smooth, and function flawlessly with clean architecture and scalable state management.
+
+This is not a demo project.
+
+1. CORE PRODUCT OBJECTIVE
+
+Build a conversion-focused agency website that:
+
+Showcases services, proof, and testimonials
+
+Uses high-quality animations and modern UI
+
+Allows guest users to book strategy calls without login
+
+Gives admins full control over scheduling
+
+Sends transactional emails on booking
+
+Separates client, guest, and admin flows cleanly
+
+2. TECH STACK (STRICT)
+Frontend
+
+Next.js (App Router)
+
+React
+
+Tailwind CSS
+
+Framer Motion
+
+Zustand for global state
+
+Backend & Database
+
+Firebase OR Supabase (choose one)
+
+Auth + database + server logic handled securely
+
+Email
+
+Transactional email service (backend-triggered only)
+
+3. UI / DESIGN REQUIREMENTS
+Visual Theme
+
+Dark, premium SaaS aesthetic
+
+Minimal layout
+
+Strong typography
+
+Subtle gradients
+
+Smooth transitions
+
+Design Principles
+
+High contrast
+
+Clear hierarchy
+
+White space
+
+Micro-interactions over flashy effects
+
+Pages
+
+Home
+
+Services
+
+Case Studies / Testimonials
+
+About
+
+Book a Call
+
+Admin Dashboard
+
+4. ANIMATION GUIDELINES (Framer Motion)
+
+Use animations to:
+
+Reveal sections on scroll
+
+Animate CTA buttons on hover
+
+Smooth page transitions
+
+Subtle parallax effects
+
+Avoid:
+
+Over-animated loaders
+
+Heavy 3D or GPU-intensive effects
+
+Animations must never block UX.
+
+5. BOOKING SYSTEM (CRITICAL FEATURE)
+Guest Booking Flow (No Login Required)
+
+Visitor clicks Book a Call
+
+Calendar loads with available slots only
+
+Visitor selects:
+
+Date
+
+Time slot
+
+Visitor enters:
+
+Name
+
+Email
+
+Confirms booking
+
+Backend validates availability
+
+Booking saved to database
+
+Slot is locked immediately
+
+Confirmation email sent
+
+Success screen displayed
+
+Booking Rules
+
+Backend is the source of truth
+
+No double booking allowed
+
+Slot availability must update instantly
+
+Rate-limit guest bookings
+
+6. AUTH & USER MANAGEMENT
+Auth Types
+
+Guest (no login)
+
+Client (optional login)
+
+Admin
+
+Admin
+
+Protected routes
+
+Role-based access
+
+Full scheduling control
+
+7. ADMIN DASHBOARD REQUIREMENTS
+
+Admin must be able to:
+
+Define working days
+
+Define working hours
+
+Block dates manually
+
+View all bookings
+
+Cancel or reschedule calls
+
+See guest & client details
+
+Admin UI:
+
+Dark dashboard
+
+Sidebar navigation
+
+Calendar-centric layout
+
+8. STATE MANAGEMENT (ZUSTAND)
+Global State
+
+Auth state
+
+Booking state
+
+User role
+
+Selected date/time
+
+Local State
+
+Modals
+
+Loaders
+
+UI interactions
+
+Rules
+
+UI state stays local
+
+Business state is global
+
+Persistent data lives in database only
+
+9. DATABASE STRUCTURE (Firebase/Supabase)
+Tables / Collections
+users
+id
+name
+email
+role (admin/client)
+created_at
+
+bookings
+id
+name
+email
+date (UTC)
+time
+status
+created_at
+
+availability
+date
+time_slot
+is_available
+
+10. EMAIL SYSTEM (MANDATORY)
+Trigger Logic
+
+Email must be sent only after booking is saved successfully
+
+Email Types
+
+Booking confirmation (client)
+
+Booking notification (admin)
+
+Cancellation email
+
+Reschedule email
+
+Optional reminder email
+
+Email Content
+
+User name
+
+Date
+
+Time
+
+Timezone
+
+Booking reference ID
+
+Rules
+
+Email failure must NOT cancel booking
+
+One email per booking ID
+
+11. TIMEZONE HANDLING
+
+Store all dates/times in UTC
+
+Convert to user timezone for UI
+
+Always show timezone explicitly in emails
+
+12. SECURITY REQUIREMENTS
+
+Backend validation for all bookings
+
+Rate limiting on guest booking
+
+Admin routes protected
+
+No sensitive logic on frontend
+
+Proper error handling
+
+13. PERFORMANCE & QUALITY BAR
+
+Fast load times
+
+Optimized animations
+
+SEO-friendly
+
+Accessible UI
+
+Clean codebase
+
+This should feel like a high-ticket agency platform, not a template site.
+
+14. SUCCESS CRITERIA
+
+The build is successful if:
+
+Booking works without login
+
+Admin controls availability
+
+Emails send reliably
+
+UI feels premium
+
+No double bookings occur
+
+State stays consistent
